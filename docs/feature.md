@@ -18,9 +18,9 @@ Users can open the application and see an empty Kanban board with a clean, ready
 Users immediately see a functional board and understand the application's purpose.
 
 **Tasks:**
-- [ ] Create Board component
-- [ ] Render empty board layout
-- [ ] Display welcome state for empty board
+- [X] Create Board component
+- [X] Render empty board layout
+- [X] Display welcome state for empty board
 
 ---
 
