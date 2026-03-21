@@ -184,10 +184,10 @@ The board state is automatically saved as users make changes (initially to brows
 Users don't lose work when they refresh or close the browser.
 
 **Tasks:**
-- [ ] Create persistence service
-- [ ] Hook state to save on every change
-- [ ] Implement local storage integration
-- [ ] Add debouncing to avoid excessive saves
+- [X] Create persistence service
+- [X] Hook state to save on every change
+- [X] Implement local storage integration
+- [X] Add debouncing to avoid excessive saves
 
 ---
 
@@ -200,7 +200,7 @@ When users return to the application, their previously saved board loads automat
 Users experience continuity and can resume work without re-creating the board structure.
 
 **Tasks:**
-- [ ] Fetch board state on app mount
-- [ ] Restore board from local storage
-- [ ] Handle missing or corrupt state gracefully
-- [ ] Display loading state while restoring
+- [X] Fetch board state on app mount
+- [X] Restore board from local storage
+- [X] Handle missing or corrupt state gracefully
+- [X] Display loading state while restoring

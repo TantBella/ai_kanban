@@ -125,6 +125,39 @@ export function Board() {
     []
   );
 
+  const handleAddColumn = useCallback((columnName: string) => {
+    setBoard((prevBoard) => ({
+      ...prevBoard,
+      columns: [
+        ...prevBoard.columns,
+        {
+          id: `col-${Date.now()}`,
+          name: columnName,
+          tasks: [],
+        },
+      ],
+    }));
+  }, []);
+
+  const handleRenameColumn = useCallback((columnId: string, newName: string) => {
+    setBoard((prevBoard) => ({
+      ...prevBoard,
+      columns: prevBoard.columns.map((col) =>
+        col.id === columnId ? { ...col, name: newName } : col
+      ),
+    }));
+  }, []);
+
+  const handleDeleteColumn = useCallback((columnId: string) => {
+    setBoard((prevBoard) => {
+      if (prevBoard.columns.length <= 1) return prevBoard;
+      return {
+        ...prevBoard,
+        columns: prevBoard.columns.filter((col) => col.id !== columnId),
+      };
+    });
+  }, []);
+
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(board));
@@ -137,10 +170,22 @@ export function Board() {
     <div className="p-8 bg-white min-h-screen">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">{board.name}</h1>
       <WelcomeBanner />
-      <div className="flex gap-6">
+      <div className="flex gap-6 items-start">
         {board.columns.map((column) => (
-          <Column key={column.id} column={column} onAddCard={handleAddCard} onDeleteCard={handleDeleteCard} onEditCard={handleEditCard} onMoveCard={handleMoveCard} />
+          <Column key={column.id} column={column} onAddCard={handleAddCard} onDeleteCard={handleDeleteCard} onEditCard={handleEditCard} onMoveCard={handleMoveCard} onRenameColumn={handleRenameColumn} onDeleteColumn={handleDeleteColumn} />
         ))}
+        <button
+          onClick={() => {
+            const columnName = prompt('Enter column name:');
+            if (columnName && columnName.trim()) {
+              handleAddColumn(columnName.trim());
+            }
+          }}
+          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mt-6 transition-colors"
+          title="Add a new column"
+        >
+          + Add Column
+        </button>
       </div>
     </div>
   );

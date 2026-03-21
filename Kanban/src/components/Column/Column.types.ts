@@ -6,4 +6,6 @@ export interface ColumnProps {
   onDeleteCard: (columnId: string, taskId: string) => void;
   onEditCard: (columnId: string, taskId: string, newTitle: string) => void;
   onMoveCard: (sourceColumnId: string, targetColumnId: string, taskId: string, sourceIndex: number, targetIndex: number) => void;
+  onRenameColumn: (columnId: string, newName: string) => void;
+  onDeleteColumn: (columnId: string) => void;
 }

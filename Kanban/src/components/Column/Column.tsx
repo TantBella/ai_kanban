@@ -2,9 +2,11 @@ import { useState } from 'react';
 import type { ColumnProps } from './Column.types';
 import { Card } from '../Card/Card';
 
-export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard }: ColumnProps) {
+export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard, onRenameColumn, onDeleteColumn }: ColumnProps) {
   const [inputValue, setInputValue] = useState('');
   const [isDraggedOver, setIsDraggedOver] = useState(false);
+  const [isRenamingColumn, setIsRenamingColumn] = useState(false);
+  const [renameValue, setRenameValue] = useState(column.name);
   const isEmpty = column.tasks.length === 0 && inputValue === '';
 
   const handleAddCard = () => {
@@ -20,6 +22,38 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard
 
   const handleEditCard = (taskId: string, newTitle: string) => {
     onEditCard(column.id, taskId, newTitle);
+  };
+
+  const handleDeleteColumn = () => {
+    if (window.confirm(`Delete column "${column.name}"?`)) {
+      onDeleteColumn(column.id);
+    }
+  };
+
+  const handleRenameStart = () => {
+    setIsRenamingColumn(true);
+    setRenameValue(column.name);
+  };
+
+  const handleRenameSave = () => {
+    const trimmedValue = renameValue.trim();
+    if (trimmedValue && trimmedValue !== column.name) {
+      onRenameColumn(column.id, trimmedValue);
+    }
+    setIsRenamingColumn(false);
+  };
+
+  const handleRenameCancel = () => {
+    setIsRenamingColumn(false);
+    setRenameValue(column.name);
+  };
+
+  const handleRenameKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleRenameSave();
+    } else if (e.key === 'Escape') {
+      handleRenameCancel();
+    }
   };
 
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
@@ -62,7 +96,36 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard
         isDraggedOver ? 'bg-blue-100 ring-2 ring-blue-400' : ''
       }`}
     >
-      <h2 className="font-bold text-gray-800 mb-4">{column.name}</h2>
+      <div className="flex justify-between items-center mb-4 group">
+        {isRenamingColumn ? (
+          <input
+            type="text"
+            value={renameValue}
+            onChange={(e) => setRenameValue(e.target.value)}
+            onKeyDown={handleRenameKeyDown}
+            onBlur={handleRenameSave}
+            autoFocus
+            className="flex-1 px-2 py-1 text-sm border border-blue-500 rounded focus:outline-none bg-white font-bold text-gray-800"
+          />
+        ) : (
+          <h2 
+            onClick={handleRenameStart}
+            className="font-bold text-gray-800 flex-1 cursor-pointer hover:bg-gray-200 p-1 rounded transition-colors"
+          >
+            {column.name}
+          </h2>
+        )}
+        <button
+          onClick={handleDeleteColumn}
+          className="opacity-0 group-hover:opacity-100 transition-opacity p-1 text-red-500 hover:text-red-700 hover:bg-red-50 rounded"
+          title="Delete column"
+          aria-label="Delete column"
+        >
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+          </svg>
+        </button>
+      </div>
       <div className="space-y-3 flex-1">
         {column.tasks.map((task, index) => (
           <Card 
