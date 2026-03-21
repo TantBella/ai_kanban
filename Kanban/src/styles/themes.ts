@@ -18,13 +18,14 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
     primary: '#FF69B4', // Hot Pink
     secondary: '#FF8C00', // Orange
     accent: '#FFD700', // Golden Yellow
-    bg: '#FFFFFF', // White
+    bg: '#8b898925', // White
     surface: '#FFF5F7', // Light Pink
     text: '#1a1a1a',
     textLight: '#666666',
     border: '#FFB6D9',
     hover: '#FF85C0',
     shadow: 'rgba(255, 105, 180, 0.3)',
+
   },
   minimal: {
     primary: '#000000', // Black
@@ -53,7 +54,7 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
 };
 
 export const THEME_FONTS: Record<ThemeType, string> = {
-  playful: 'Fredoka, Poppins, Quicksand, sans-serif',
+  playful: 'TasktopiaRetroFont, Oi, serif, Rubik Microbe, system-ui',
   minimal: 'Inter, Roboto, Lato, sans-serif',
   modern: 'Outfit, "Space Grotesk", sans-serif',
 };

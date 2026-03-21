@@ -2,6 +2,8 @@ import { useState, useCallback, useEffect } from 'react';
 import type { Board as BoardType } from '../../types/index';
 import { Column } from '../Column/Column';
 import { WelcomeBanner } from '../WelcomeBanner/WelcomeBanner';
+import { useTheme } from '../../hooks/useTheme';
+import { THEMES } from '../../styles/themes';
 
 interface BoardProps {
   board: BoardType;
@@ -10,6 +12,8 @@ interface BoardProps {
 
 export function Board({ board, onUpdateBoard }: BoardProps) {
   const [localBoard, setLocalBoard] = useState<BoardType>(board);
+  const { theme } = useTheme();
+  const themeColors = THEMES[theme];
 
   useEffect(() => {
     setLocalBoard(board);
@@ -155,8 +159,16 @@ export function Board({ board, onUpdateBoard }: BoardProps) {
   }, [onUpdateBoard]);
 
   return (
-    <div className="p-8 bg-white">
-      <h1 className="text-3xl font-bold text-gray-900 mb-6">{localBoard.name}</h1>
+    <div className="p-8 ">
+      <div className='text-center border-4 p-4 mb-3 rounded'  style={{
+         backgroundColor: `${themeColors.accent}`,
+         borderColor: themeColors.primary,
+         color: themeColors.text
+        }}>
+
+      <h1 className="text-3xl text-gray-900 mb-3"
+     >{localBoard.name}</h1>
+        </div>
       <WelcomeBanner />
       <div className="flex gap-6 items-start">
         {localBoard.columns.map((column) => (
@@ -178,9 +190,12 @@ export function Board({ board, onUpdateBoard }: BoardProps) {
               handleAddColumn(columnName.trim());
             }
           }}
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded mt-6 transition-colors"
-          title="Add a new column"
-        >
+          className="border-4 py-2 px-4 rounded mt-6 transition-colors"
+          title="Add a new column"  style={{
+           backgroundColor: `${themeColors.accent}`,
+         borderColor: themeColors.primary,
+         color: themeColors.text
+        }}>
           + Add Column
         </button>
       </div>

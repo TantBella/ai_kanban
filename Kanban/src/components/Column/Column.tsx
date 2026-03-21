@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import type { ColumnProps } from './Column.types';
 import { Card } from '../Card/Card';
+import { useTheme } from '../../hooks/useTheme';
+import { THEMES } from '../../styles/themes';
 
 export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard, onRenameColumn, onDeleteColumn }: ColumnProps) {
   const [inputValue, setInputValue] = useState('');
   const [isDraggedOver, setIsDraggedOver] = useState(false);
   const [isRenamingColumn, setIsRenamingColumn] = useState(false);
   const [renameValue, setRenameValue] = useState(column.name);
+  const { theme } = useTheme();
+  const themeColors = THEMES[theme];
   const isEmpty = column.tasks.length === 0 && inputValue === '';
 
   const handleAddCard = () => {
@@ -92,9 +96,13 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      className={`bg-gray-100 rounded-lg p-4 w-80 flex flex-col min-h-96 transition-colors ${
-        isDraggedOver ? 'bg-blue-100 ring-2 ring-blue-400' : ''
+      className={`rounded-lg p-4 w-80 flex flex-col min-h-96 transition-colors ${
+        isDraggedOver ? 'ring-2' : ''
       }`}
+      style={{
+        backgroundColor: themeColors.surface,
+        boxShadow: isDraggedOver ? `0 0 0 2px ${themeColors.primary}` : 'none'
+      }}
     >
       <div className="flex justify-between items-center mb-4 group">
         {isRenamingColumn ? (
@@ -105,7 +113,8 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard
             onKeyDown={handleRenameKeyDown}
             onBlur={handleRenameSave}
             autoFocus
-            className="flex-1 px-2 py-1 text-sm border border-blue-500 rounded focus:outline-none bg-white font-bold text-gray-800"
+            className="flex-1 px-2 py-1 text-sm border rounded focus:outline-none bg-white font-bold text-gray-800"
+            style={{ borderColor: '#ccc' }}
           />
         ) : (
           <h2 
@@ -150,7 +159,8 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard
           onChange={(e) => setInputValue(e.target.value)}
           onKeyPress={handleKeyPress}
           placeholder="Add a card..."
-          className="w-full px-3 py-2 text-sm border border-gray-300 rounded bg-white hover:bg-gray-50 focus:bg-white focus:border-blue-500 focus:outline-none placeholder-gray-400"
+          className="w-full px-3 py-2 text-sm border rounded bg-white hover:bg-gray-50 focus:bg-white focus:outline-none placeholder-gray-400"
+          style={{ borderColor: '#ccc' }}
         />
       </div>
     </div>

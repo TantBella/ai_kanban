@@ -30,9 +30,16 @@ function loadThemeFromStorage(): ThemeType {
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setThemeState] = useState<ThemeType>(loadThemeFromStorage);
 
+  // Initialize data attribute on mount
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, []);
+
   useEffect(() => {
     try {
       localStorage.setItem(THEME_STORAGE_KEY, theme);
+      // Apply theme to html element for CSS font selection
+      document.documentElement.setAttribute('data-theme', theme);
     } catch (error) {
       console.error('Failed to save theme to storage:', error);
     }

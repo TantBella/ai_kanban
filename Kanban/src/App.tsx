@@ -120,19 +120,20 @@ function App() {
   }
 
   return (
-    <div style={{ backgroundColor: themeColors.bg, minHeight: '100vh' }}>
+    <div  style={{ backgroundColor: themeColors.bg, minHeight: '100vh' }}>
       <div
-        className="text-white p-4 flex items-center justify-between"
+        className="text-white px-8 py-6 flex items-center justify-between"
         style={{ backgroundColor: themeColors.surface }}
       >
         <h1
-          className="text-2xl font-bold cursor-pointer hover:opacity-80 transition-opacity"
+          className="text-3xl  cursor-pointer hover:opacity-80 transition-opacity"
           onClick={() => setShowThemeSelector(true)}
-          style={{ color: themeColors.text }}
+          style={{ color: themeColors.secondary }}
         >
           TaskTopia
         </h1>
         <BoardSelector
+        
           boards={appState.boards}
           selectedBoardId={appState.selectedBoardId}
           onSelectBoard={handleSelectBoard}

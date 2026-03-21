@@ -73,7 +73,8 @@ export function Card({ task, onDelete, onEdit, columnId, taskIndex }: CardProps)
             onKeyDown={handleKeyDown}
             onBlur={handleSaveEdit}
             autoFocus
-            className="flex-1 px-2 py-1 text-sm border border-blue-500 rounded focus:outline-none bg-white"
+            className="flex-1 px-2 py-1 text-sm border rounded focus:outline-none bg-white"
+            style={{ borderColor: '#ccc' }}
           />
         ) : (
           <p

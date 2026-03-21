@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import type { Board } from '../../types/index';
+import { useTheme } from '../../hooks/useTheme';
+import { THEMES } from '../../styles/themes';
 
 interface BoardSelectorProps {
   boards: Board[];
@@ -22,6 +24,8 @@ export function BoardSelector({
   const [renamingBoardId, setRenamingBoardId] = useState<string | null>(null);
   const [renameValue, setRenameValue] = useState('');
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const { theme } = useTheme();
+  const themeColors = THEMES[theme];
 
   const selectedBoard = boards.find((b) => b.id === selectedBoardId);
 
@@ -78,7 +82,8 @@ export function BoardSelector({
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors"
+        className="text-white py-2 px-4 rounded transition-colors hover:opacity-80"
+        style={{ backgroundColor: themeColors.primary }}
         title="Select a board"
       >
         {selectedBoard?.name || 'Select Board'} ▼
@@ -97,7 +102,8 @@ export function BoardSelector({
                     onKeyDown={(e) => handleRenameKeyDown(e, board.id)}
                     onBlur={() => handleRenameSave(board.id)}
                     autoFocus
-                    className="flex-1 px-2 py-1 text-sm border border-blue-500 rounded focus:outline-none"
+                    className="flex-1 px-2 py-1 border rounded focus:outline-none"
+                    style={{ borderColor: '#ccc' }}
                   />
                 ) : (
                   <button
@@ -105,11 +111,15 @@ export function BoardSelector({
                       onSelectBoard(board.id);
                       setIsOpen(false);
                     }}
-                    className={`flex-1 text-left px-2 py-1 text-sm rounded transition-colors ${
+                    className={`flex-1 text-left px-2 py-1 rounded transition-colors ${
                       board.id === selectedBoardId
-                        ? 'bg-blue-100 text-blue-900 font-semibold'
+                        ? 'font-semibold'
                         : 'text-gray-800'
                     }`}
+                    style={{
+                      backgroundColor: board.id === selectedBoardId ? `${themeColors.primary}20` : 'transparent',
+                      color: board.id === selectedBoardId ? themeColors.primary : '#333'
+                    }}
                   >
                     {board.name}
                   </button>
@@ -136,7 +146,8 @@ export function BoardSelector({
           </div>
           <button
             onClick={handleCreateClick}
-            className="w-full px-2 py-2 text-sm text-left bg-gray-100 hover:bg-gray-200 border-t border-gray-300 text-blue-600 font-semibold transition-colors"
+            className="w-full px-2 py-2 text-left bg-gray-100 hover:bg-gray-200 border-t border-gray-300 font-semibold transition-colors"
+            style={{ color: themeColors.primary }}
           >
             + New Board
           </button>
