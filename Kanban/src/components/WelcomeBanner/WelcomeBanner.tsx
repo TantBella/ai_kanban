@@ -8,7 +8,7 @@ export function WelcomeBanner() {
   return (
     <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded flex justify-between items-center">
       <p className="text-blue-800 text-sm">
-        Welcome to TaskTopia. Drag cards between columns to organize your workflow.
+        Welcome to TaskTopia. Create, edit and drag cards between columns to organize your workflow.
       </p>
       <button
         onClick={() => setIsVisible(false)}

@@ -115,7 +115,7 @@ function App() {
   return (
     <div className="bg-white min-h-screen">
       <div className="bg-gray-800 text-white p-4 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Kanban</h1>
+        <h1 className="text-2xl font-bold">TaskTopia</h1>
         <BoardSelector
           boards={appState.boards}
           selectedBoardId={appState.selectedBoardId}

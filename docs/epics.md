@@ -7,13 +7,13 @@ Epics represent large parts of the system and are used to organize features.
 
 ---
 
-## Epic 1: Board Management
+## Epic 1: Board Management -DONE
 
 Large area of functionality focused on creating, viewing, and managing Kanban boards. Users should be able to initialize a new board and see a ready-to-use interface.
 
 ---
 
-## Epic 2: Column Organization
+## Epic 2: Column Organization -DONE
 
 Large area of functionality focused on organizing workflow stages. Users should be able to create, rename, and manage columns that represent different phases of work.
 
