@@ -4,4 +4,5 @@ export interface ColumnProps {
   column: Column;
   onAddCard: (columnId: string, title: string) => void;
   onDeleteCard: (columnId: string, taskId: string) => void;
+  onEditCard: (columnId: string, taskId: string, newTitle: string) => void;
 }

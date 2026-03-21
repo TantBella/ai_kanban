@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { ColumnProps } from './Column.types';
 import { Card } from '../Card/Card';
 
-export function Column({ column, onAddCard, onDeleteCard }: ColumnProps) {
+export function Column({ column, onAddCard, onDeleteCard, onEditCard }: ColumnProps) {
   const [inputValue, setInputValue] = useState('');
   const isEmpty = column.tasks.length === 0 && inputValue === '';
 
@@ -17,6 +17,10 @@ export function Column({ column, onAddCard, onDeleteCard }: ColumnProps) {
     onDeleteCard(column.id, taskId);
   };
 
+  const handleEditCard = (taskId: string, newTitle: string) => {
+    onEditCard(column.id, taskId, newTitle);
+  };
+
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleAddCard();
@@ -28,7 +32,7 @@ export function Column({ column, onAddCard, onDeleteCard }: ColumnProps) {
       <h2 className="font-bold text-gray-800 mb-4">{column.name}</h2>
       <div className="space-y-3 flex-1">
         {column.tasks.map((task) => (
-          <Card key={task.id} task={task} onDelete={handleDeleteCard} />
+          <Card key={task.id} task={task} onDelete={handleDeleteCard} onEdit={handleEditCard} />
         ))}
         {isEmpty && (
           <div className="flex items-center justify-center h-32 text-gray-400">

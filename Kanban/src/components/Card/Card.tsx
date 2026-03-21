@@ -1,16 +1,65 @@
+import { useState, useRef } from 'react';
 import type { CardProps } from './Card.types';
 
-export function Card({ task, onDelete }: CardProps) {
+export function Card({ task, onDelete, onEdit }: CardProps) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [editValue, setEditValue] = useState(task.title);
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const handleDeleteClick = () => {
     if (window.confirm(`Delete task "${task.title}"?`)) {
       onDelete(task.id);
     }
   };
 
+  const handleStartEdit = () => {
+    setIsEditing(true);
+    setEditValue(task.title);
+  };
+
+  const handleSaveEdit = () => {
+    const trimmedValue = editValue.trim();
+    if (trimmedValue && trimmedValue !== task.title) {
+      onEdit(task.id, trimmedValue);
+    }
+    setIsEditing(false);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false);
+    setEditValue(task.title);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSaveEdit();
+    } else if (e.key === 'Escape') {
+      handleCancelEdit();
+    }
+  };
+
   return (
     <div className="bg-white p-4 rounded shadow hover:shadow-lg transition-shadow group relative">
       <div className="flex justify-between items-start gap-2">
-        <p className="text-sm font-medium text-gray-800 flex-1">{task.title}</p>
+        {isEditing ? (
+          <input
+            ref={inputRef}
+            type="text"
+            value={editValue}
+            onChange={(e) => setEditValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onBlur={handleSaveEdit}
+            autoFocus
+            className="flex-1 px-2 py-1 text-sm border border-blue-500 rounded focus:outline-none bg-white"
+          />
+        ) : (
+          <p
+            onClick={handleStartEdit}
+            className="text-sm font-medium text-gray-800 flex-1 cursor-pointer hover:bg-gray-100 p-1 rounded transition-colors"
+          >
+            {task.title}
+          </p>
+        )}
         <button
           onClick={handleDeleteClick}
           className="opacity-0 group-hover:opacity-100 transition-opacity p-1 text-red-500 hover:text-red-700 hover:bg-red-50 rounded"
@@ -22,7 +71,7 @@ export function Card({ task, onDelete }: CardProps) {
           </svg>
         </button>
       </div>
-      {task.description && (
+      {task.description && !isEditing && (
         <p className="text-xs text-gray-600 mt-2">{task.description}</p>
       )}
     </div>

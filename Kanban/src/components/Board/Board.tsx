@@ -62,13 +62,30 @@ export function Board() {
     }));
   }, []);
 
+  const handleEditCard = useCallback((columnId: string, taskId: string, newTitle: string) => {
+    setBoard((prevBoard) => ({
+      ...prevBoard,
+      columns: prevBoard.columns.map((col) => {
+        if (col.id === columnId) {
+          return {
+            ...col,
+            tasks: col.tasks.map((task) =>
+              task.id === taskId ? { ...task, title: newTitle } : task
+            ),
+          };
+        }
+        return col;
+      }),
+    }));
+  }, []);
+
   return (
     <div className="p-8 bg-white min-h-screen">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">{board.name}</h1>
       <WelcomeBanner />
       <div className="flex gap-6">
         {board.columns.map((column) => (
-          <Column key={column.id} column={column} onAddCard={handleAddCard} onDeleteCard={handleDeleteCard} />
+          <Column key={column.id} column={column} onAddCard={handleAddCard} onDeleteCard={handleDeleteCard} onEditCard={handleEditCard} />
         ))}
       </div>
     </div>
