@@ -1,0 +1,206 @@
+# Features
+## Purpose
+
+This document defines the features of the Kanban application and breaks them down into tasks.
+
+Each feature must belong to an Epic and include clear, implementable tasks.
+
+---
+
+## Epic 1: Board Management
+
+### Feature: View Empty Board
+
+**Description:**
+Users can open the application and see an empty Kanban board with a clean, ready-to-use interface.
+
+**User Value:**
+Users immediately see a functional board and understand the application's purpose.
+
+**Tasks:**
+- [ ] Create Board component
+- [ ] Render empty board layout
+- [ ] Display welcome state for empty board
+
+---
+
+### Feature: Create New Board
+
+**Description:**
+Users can create a new board with a custom name to organize different projects or workflows.
+
+**User Value:**
+Users can manage multiple boards for different initiatives without confusion.
+
+**Tasks:**
+- [ ] Create input for board name
+- [ ] Handle board creation action
+- [ ] Store new board in state
+- [ ] Navigate to newly created board
+
+---
+
+## Epic 2: Column Organization
+
+### Feature: Create Columns
+
+**Description:**
+Users can add columns to their board (e.g., "To Do", "In Progress", "Done") to organize work stages.
+
+**User Value:**
+Users can visualize workflow stages and categorize work logically.
+
+**Tasks:**
+- [ ] Create Column component
+- [ ] Add button to create new column
+- [ ] Handle column creation with name input
+- [ ] Add column to board state
+
+---
+
+### Feature: Rename Column
+
+**Description:**
+Users can edit a column's name to match their specific workflow needs.
+
+**User Value:**
+Users can customize the board to reflect their project's stages without recreating columns.
+
+**Tasks:**
+- [ ] Add edit mode to Column component
+- [ ] Handle inline edit on column header
+- [ ] Update column name in state
+- [ ] Close edit mode on save
+
+---
+
+### Feature: Delete Column
+
+**Description:**
+Users can remove a column they no longer need.
+
+**User Value:**
+Users keep their board clean and focused on active workflow stages.
+
+**Tasks:**
+- [ ] Add delete button to column header
+- [ ] Handle column deletion
+- [ ] Remove column from board state
+- [ ] Handle cascade (decide: delete cards or move them)
+
+---
+
+## Epic 3: Task Management
+
+### Feature: Create Task Card
+
+**Description:**
+Users can quickly add a new task card to any column by typing a title and confirming.
+
+**User Value:**
+Users can rapidly capture work items without complex forms or dialogs.
+
+**Tasks:**
+- [ ] Create Card component
+- [ ] Add input field for card title
+- [ ] Handle create card action
+- [ ] Add card to column state
+
+---
+
+### Feature: Edit Task Card
+
+**Description:**
+Users can click a card to update its title or description.
+
+**User Value:**
+Users can refine task details as requirements become clearer.
+
+**Tasks:**
+- [ ] Add edit mode to Card component
+- [ ] Handle inline edit on card
+- [ ] Update card content in state
+- [ ] Close edit mode on save
+
+---
+
+### Feature: Delete Task Card
+
+**Description:**
+Users can remove completed or obsolete cards from the board.
+
+**User Value:**
+Users keep the board current and focused on active work.
+
+**Tasks:**
+- [ ] Add delete button to card
+- [ ] Handle card deletion
+- [ ] Remove card from column state
+
+---
+
+## Epic 4: Card Organization
+
+### Feature: Move Card Between Columns
+
+**Description:**
+Users can drag a card from one column to another (e.g., "To Do" → "In Progress") using drag-and-drop.
+
+**User Value:**
+Users can update task status intuitively with minimal friction.
+
+**Tasks:**
+- [ ] Implement drag-and-drop logic
+- [ ] Handle card drop between columns
+- [ ] Update card location in state
+- [ ] Provide visual feedback during drag
+
+---
+
+### Feature: Reorder Cards Within Column
+
+**Description:**
+Users can drag a card up or down within the same column to prioritize tasks.
+
+**User Value:**
+Users can communicate task priority visually without additional tooling.
+
+**Tasks:**
+- [ ] Extend drag-and-drop to support reordering
+- [ ] Handle card reorder within column
+- [ ] Update card order in state
+- [ ] Preserve visual order on re-render
+
+---
+
+## Epic 5: Board Persistence
+
+### Feature: Auto-Save Board State
+
+**Description:**
+The board state is automatically saved as users make changes (initially to browser local storage).
+
+**User Value:**
+Users don't lose work when they refresh or close the browser.
+
+**Tasks:**
+- [ ] Create persistence service
+- [ ] Hook state to save on every change
+- [ ] Implement local storage integration
+- [ ] Add debouncing to avoid excessive saves
+
+---
+
+### Feature: Load Saved Board
+
+**Description:**
+When users return to the application, their previously saved board loads automatically.
+
+**User Value:**
+Users experience continuity and can resume work without re-creating the board structure.
+
+**Tasks:**
+- [ ] Fetch board state on app mount
+- [ ] Restore board from local storage
+- [ ] Handle missing or corrupt state gracefully
+- [ ] Display loading state while restoring
