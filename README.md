@@ -131,3 +131,4 @@ AI integration (auto-create tasks from prompts)
 Sync with Git (PRs ↔ tasks)
 Role-based AI workflows (PO, Dev, QA)
 Import/export planning data between projects
+Other way to switch between and organize boards

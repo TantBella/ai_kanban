@@ -15,3 +15,8 @@ export interface Board {
   name: string;
   columns: Column[];
 }
+
+export interface AppState {
+  boards: Board[];
+  selectedBoardId: string;
+}

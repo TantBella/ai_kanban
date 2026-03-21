@@ -33,10 +33,10 @@ Users can create a new board with a custom name to organize different projects o
 Users can manage multiple boards for different initiatives without confusion.
 
 **Tasks:**
-- [ ] Create input for board name
-- [ ] Handle board creation action
-- [ ] Store new board in state
-- [ ] Navigate to newly created board
+- [X] Create input for board name
+- [X] Handle board creation action
+- [X] Store new board in state
+- [X] Navigate to newly created board
 
 ---
 
@@ -51,10 +51,10 @@ Users can add columns to their board (e.g., "To Do", "In Progress", "Done") to o
 Users can visualize workflow stages and categorize work logically.
 
 **Tasks:**
-- [ ] Create Column component
-- [ ] Add button to create new column
-- [ ] Handle column creation with name input
-- [ ] Add column to board state
+- [X] Create Column component
+- [X] Add button to create new column
+- [X] Handle column creation with name input
+- [X] Add column to board state
 
 ---
 
@@ -67,10 +67,10 @@ Users can edit a column's name to match their specific workflow needs.
 Users can customize the board to reflect their project's stages without recreating columns.
 
 **Tasks:**
-- [ ] Add edit mode to Column component
-- [ ] Handle inline edit on column header
-- [ ] Update column name in state
-- [ ] Close edit mode on save
+- [X] Add edit mode to Column component
+- [X] Handle inline edit on column header
+- [X] Update column name in state
+- [X] Close edit mode on save
 
 ---
 
@@ -83,10 +83,10 @@ Users can remove a column they no longer need.
 Users keep their board clean and focused on active workflow stages.
 
 **Tasks:**
-- [ ] Add delete button to column header
-- [ ] Handle column deletion
-- [ ] Remove column from board state
-- [ ] Handle cascade (decide: delete cards or move them)
+- [X] Add delete button to column header
+- [X] Handle column deletion
+- [X] Remove column from board state
+- [X] Handle cascade (decide: delete cards or move them)
 
 ---
 
