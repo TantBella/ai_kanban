@@ -150,10 +150,10 @@ Users can drag a card from one column to another (e.g., "To Do" → "In Progress
 Users can update task status intuitively with minimal friction.
 
 **Tasks:**
-- [ ] Implement drag-and-drop logic
-- [ ] Handle card drop between columns
-- [ ] Update card location in state
-- [ ] Provide visual feedback during drag
+- [X] Implement drag-and-drop logic
+- [X] Handle card drop between columns
+- [X] Update card location in state
+- [X] Provide visual feedback during drag
 
 ---
 
@@ -166,10 +166,10 @@ Users can drag a card up or down within the same column to prioritize tasks.
 Users can communicate task priority visually without additional tooling.
 
 **Tasks:**
-- [ ] Extend drag-and-drop to support reordering
-- [ ] Handle card reorder within column
-- [ ] Update card order in state
-- [ ] Preserve visual order on re-render
+- [X] Extend drag-and-drop to support reordering
+- [X] Handle card reorder within column
+- [X] Update card order in state
+- [X] Preserve visual order on re-render
 
 ---
 

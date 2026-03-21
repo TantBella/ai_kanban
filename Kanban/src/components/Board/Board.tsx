@@ -1,30 +1,47 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import type { Board as BoardType } from '../../types/index';
 import { Column } from '../Column/Column';
 import { WelcomeBanner } from '../WelcomeBanner/WelcomeBanner';
 
+const STORAGE_KEY = 'kanban-board-state';
+
+const DEFAULT_BOARD: BoardType = {
+  id: '1',
+  name: 'My Board',
+  columns: [
+    {
+      id: 'col-1',
+      name: 'To Do',
+      tasks: [],
+    },
+    {
+      id: 'col-2',
+      name: 'In Progress',
+      tasks: [],
+    },
+    {
+      id: 'col-3',
+      name: 'Done',
+      tasks: [],
+    },
+  ],
+};
+
+function loadBoardFromStorage(): BoardType {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      return parsed;
+    }
+  } catch (error) {
+    console.error('Failed to load board from storage:', error);
+  }
+  return DEFAULT_BOARD;
+}
+
 export function Board() {
-  const [board, setBoard] = useState<BoardType>({
-    id: '1',
-    name: 'My Board',
-    columns: [
-      {
-        id: 'col-1',
-        name: 'To Do',
-        tasks: [],
-      },
-      {
-        id: 'col-2',
-        name: 'In Progress',
-        tasks: [],
-      },
-      {
-        id: 'col-3',
-        name: 'Done',
-        tasks: [],
-      },
-    ],
-  });
+  const [board, setBoard] = useState<BoardType>(loadBoardFromStorage);
 
   const handleAddCard = useCallback((columnId: string, title: string) => {
     setBoard((prevBoard) => ({
@@ -107,6 +124,14 @@ export function Board() {
     },
     []
   );
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(board));
+    } catch (error) {
+      console.error('Failed to save board to storage:', error);
+    }
+  }, [board]);
 
   return (
     <div className="p-8 bg-white min-h-screen">

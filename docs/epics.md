@@ -19,18 +19,18 @@ Large area of functionality focused on organizing workflow stages. Users should 
 
 ---
 
-## Epic 3: Task Management
+## Epic 3: Task Management -DONE
 
 Large area of functionality focused on creating and managing individual task cards. Users should be able to quickly add, edit, and remove work items from the board.
 
 ---
 
-## Epic 4: Card Organization
+## Epic 4: Card Organization -DONE
 
 Large area of functionality focused on organizing and prioritizing cards within and across columns. Users should be able to move and reorder cards to reflect status and priority.
 
 ---
 
-## Epic 5: Board Persistence
+## Epic 5: Board Persistence -Done
 
 Large area of functionality focused on saving and retrieving board state. Users should be able to close and return to the application without losing work.
