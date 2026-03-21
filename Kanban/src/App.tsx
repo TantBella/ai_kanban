@@ -4,4 +4,4 @@ function App() {
   return <Board />;
 }
 
-export default App
+export default App;

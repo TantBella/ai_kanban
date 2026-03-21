@@ -1,6 +1,6 @@
-import { CardProps } from './Card.types';
+import type { CardProps } from './Card.types';
 
-export function Card({ task, columnId }: CardProps) {
+export function Card({ task }: CardProps) {
   return (
     <div className="bg-white p-4 rounded shadow hover:shadow-lg cursor-pointer">
       <p className="text-sm font-medium text-gray-800">{task.title}</p>
