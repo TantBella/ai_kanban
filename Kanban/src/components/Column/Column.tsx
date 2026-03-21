@@ -2,8 +2,9 @@ import { useState } from 'react';
 import type { ColumnProps } from './Column.types';
 import { Card } from '../Card/Card';
 
-export function Column({ column, onAddCard, onDeleteCard, onEditCard }: ColumnProps) {
+export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard }: ColumnProps) {
   const [inputValue, setInputValue] = useState('');
+  const [isDraggedOver, setIsDraggedOver] = useState(false);
   const isEmpty = column.tasks.length === 0 && inputValue === '';
 
   const handleAddCard = () => {
@@ -21,6 +22,31 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard }: ColumnPr
     onEditCard(column.id, taskId, newTitle);
   };
 
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    setIsDraggedOver(true);
+  };
+
+  const handleDragLeave = () => {
+    setIsDraggedOver(false);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDraggedOver(false);
+    
+    try {
+      const dragData = JSON.parse(e.dataTransfer.getData('application/json'));
+      const { taskId, sourceColumnId, sourceIndex } = dragData;
+      
+      const targetIndex = column.tasks.length;
+      onMoveCard(sourceColumnId, column.id, taskId, sourceIndex, targetIndex);
+    } catch (error) {
+      console.error('Failed to parse drag data:', error);
+    }
+  };
+
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleAddCard();
@@ -28,11 +54,25 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard }: ColumnPr
   };
 
   return (
-    <div className="bg-gray-100 rounded-lg p-4 w-80 flex flex-col min-h-96">
+    <div
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+      className={`bg-gray-100 rounded-lg p-4 w-80 flex flex-col min-h-96 transition-colors ${
+        isDraggedOver ? 'bg-blue-100 ring-2 ring-blue-400' : ''
+      }`}
+    >
       <h2 className="font-bold text-gray-800 mb-4">{column.name}</h2>
       <div className="space-y-3 flex-1">
-        {column.tasks.map((task) => (
-          <Card key={task.id} task={task} onDelete={handleDeleteCard} onEdit={handleEditCard} />
+        {column.tasks.map((task, index) => (
+          <Card 
+            key={task.id} 
+            task={task} 
+            columnId={column.id}
+            taskIndex={index}
+            onDelete={handleDeleteCard} 
+            onEdit={handleEditCard} 
+          />
         ))}
         {isEmpty && (
           <div className="flex items-center justify-center h-32 text-gray-400">

@@ -101,10 +101,10 @@ Users can quickly add a new task card to any column by typing a title and confir
 Users can rapidly capture work items without complex forms or dialogs.
 
 **Tasks:**
-- [ ] Create Card component
-- [ ] Add input field for card title
-- [ ] Handle create card action
-- [ ] Add card to column state
+- [X] Create Card component
+- [X] Add input field for card title
+- [X] Handle create card action
+- [X] Add card to column state
 
 ---
 
@@ -117,10 +117,10 @@ Users can click a card to update its title or description.
 Users can refine task details as requirements become clearer.
 
 **Tasks:**
-- [ ] Add edit mode to Card component
-- [ ] Handle inline edit on card
-- [ ] Update card content in state
-- [ ] Close edit mode on save
+- [X] Add edit mode to Card component
+- [X] Handle inline edit on card
+- [X] Update card content in state
+- [X] Close edit mode on save
 
 ---
 
@@ -133,9 +133,9 @@ Users can remove completed or obsolete cards from the board.
 Users keep the board current and focused on active work.
 
 **Tasks:**
-- [ ] Add delete button to card
-- [ ] Handle card deletion
-- [ ] Remove card from column state
+- [X] Add delete button to card
+- [X] Handle card deletion
+- [X] Remove card from column state
 
 ---
 

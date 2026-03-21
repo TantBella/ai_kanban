@@ -1,10 +1,11 @@
 import { useState, useRef } from 'react';
 import type { CardProps } from './Card.types';
 
-export function Card({ task, onDelete, onEdit }: CardProps) {
+export function Card({ task, onDelete, onEdit, columnId, taskIndex }: CardProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(task.title);
   const inputRef = useRef<HTMLInputElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
 
   const handleDeleteClick = () => {
     if (window.confirm(`Delete task "${task.title}"?`)) {
@@ -38,8 +39,30 @@ export function Card({ task, onDelete, onEdit }: CardProps) {
     }
   };
 
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+    setIsDragging(true);
+    const dragData = {
+      taskId: task.id,
+      sourceColumnId: columnId,
+      sourceIndex: taskIndex,
+    };
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('application/json', JSON.stringify(dragData));
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+
   return (
-    <div className="bg-white p-4 rounded shadow hover:shadow-lg transition-shadow group relative">
+    <div
+      draggable
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+      className={`bg-white p-4 rounded shadow transition-all group relative ${
+        isDragging ? 'opacity-50 cursor-grabbing' : 'hover:shadow-lg cursor-grab'
+      }`}
+    >
       <div className="flex justify-between items-start gap-2">
         {isEditing ? (
           <input

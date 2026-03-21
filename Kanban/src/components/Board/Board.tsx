@@ -79,13 +79,42 @@ export function Board() {
     }));
   }, []);
 
+  const handleMoveCard = useCallback(
+    (sourceColumnId: string, targetColumnId: string, taskId: string, sourceIndex: number, targetIndex: number) => {
+      setBoard((prevBoard) => {
+        const newColumns = prevBoard.columns.map((col) => ({
+          ...col,
+          tasks: [...col.tasks],
+        }));
+        const sourceColumn = newColumns.find((col) => col.id === sourceColumnId);
+        const targetColumn = newColumns.find((col) => col.id === targetColumnId);
+
+        if (!sourceColumn || !targetColumn) return prevBoard;
+
+        const taskToMove = sourceColumn.tasks[sourceIndex];
+        if (!taskToMove) return prevBoard;
+
+        if (sourceColumnId === targetColumnId) {
+          sourceColumn.tasks.splice(sourceIndex, 1);
+          sourceColumn.tasks.splice(targetIndex, 0, taskToMove);
+        } else {
+          sourceColumn.tasks.splice(sourceIndex, 1);
+          targetColumn.tasks.splice(targetIndex, 0, taskToMove);
+        }
+
+        return { ...prevBoard, columns: newColumns };
+      });
+    },
+    []
+  );
+
   return (
     <div className="p-8 bg-white min-h-screen">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">{board.name}</h1>
       <WelcomeBanner />
       <div className="flex gap-6">
         {board.columns.map((column) => (
-          <Column key={column.id} column={column} onAddCard={handleAddCard} onDeleteCard={handleDeleteCard} onEditCard={handleEditCard} />
+          <Column key={column.id} column={column} onAddCard={handleAddCard} onDeleteCard={handleDeleteCard} onEditCard={handleEditCard} onMoveCard={handleMoveCard} />
         ))}
       </div>
     </div>
