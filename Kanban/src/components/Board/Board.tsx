@@ -81,7 +81,7 @@ export function Board({ board, onUpdateBoard }: BoardProps) {
   }, [onUpdateBoard]);
 
   const handleMoveCard = useCallback(
-    (sourceColumnId: string, targetColumnId: string, taskId: string, sourceIndex: number, targetIndex: number) => {
+    (sourceColumnId: string, targetColumnId: string, _taskId: string, sourceIndex: number, targetIndex: number) => {
       setLocalBoard((prevBoard) => {
         const newColumns = prevBoard.columns.map((col) => ({
           ...col,

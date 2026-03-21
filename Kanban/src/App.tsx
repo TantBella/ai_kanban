@@ -2,6 +2,9 @@ import { useState, useCallback, useEffect } from 'react';
 import type { Board, AppState } from './types/index';
 import { Board as BoardComponent } from './components/Board/Board';
 import { BoardSelector } from './components/BoardSelector/BoardSelector';
+import { ThemeSelector } from './components/ThemeSelector/ThemeSelector';
+import { useTheme } from './hooks/useTheme';
+import { THEMES } from './styles/themes';
 
 const STORAGE_KEY = 'kanban-app-state';
 
@@ -37,6 +40,10 @@ function loadAppState(): AppState {
 
 function App() {
   const [appState, setAppState] = useState<AppState>(loadAppState);
+  const [showThemeSelector, setShowThemeSelector] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  const themeColors = THEMES[theme];
 
   const handleCreateBoard = useCallback((boardName: string) => {
     setAppState((prevState) => {
@@ -113,9 +120,18 @@ function App() {
   }
 
   return (
-    <div className="bg-white min-h-screen">
-      <div className="bg-gray-800 text-white p-4 flex items-center justify-between">
-        <h1 className="text-2xl font-bold">TaskTopia</h1>
+    <div style={{ backgroundColor: themeColors.bg, minHeight: '100vh' }}>
+      <div
+        className="text-white p-4 flex items-center justify-between"
+        style={{ backgroundColor: themeColors.surface }}
+      >
+        <h1
+          className="text-2xl font-bold cursor-pointer hover:opacity-80 transition-opacity"
+          onClick={() => setShowThemeSelector(true)}
+          style={{ color: themeColors.text }}
+        >
+          TaskTopia
+        </h1>
         <BoardSelector
           boards={appState.boards}
           selectedBoardId={appState.selectedBoardId}
@@ -126,6 +142,14 @@ function App() {
         />
       </div>
       <BoardComponent board={selectedBoard} onUpdateBoard={handleUpdateSelectedBoard} />
+      
+      {showThemeSelector && (
+        <ThemeSelector
+          currentTheme={theme}
+          onThemeSelect={setTheme}
+          onClose={() => setShowThemeSelector(false)}
+        />
+      )}
     </div>
   );
 }
