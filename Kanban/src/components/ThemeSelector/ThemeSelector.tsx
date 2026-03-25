@@ -1,5 +1,5 @@
 import type { ThemeType } from '../../styles/themes';
-import { THEMES, THEME_DESCRIPTIONS } from '../../styles/themes';
+import { THEMES, THEME_DESCRIPTIONS, THEME_FONTS } from '../../styles/themes';
 
 interface ThemeSelectorProps {
   currentTheme: ThemeType;
@@ -17,11 +17,12 @@ export function ThemeSelector({ currentTheme, onThemeSelect, onClose }: ThemeSel
         onClick={(e) => e.stopPropagation()}
         style={{
           borderColor: THEMES[currentTheme].primary,
+           fontFamily: 'TasktopiaParagraphFont',
           borderWidth: '2px'
         }}
       >
-        <h2 className="text-3xl font-bold mb-2 text-center">Choose Your Theme</h2>
-        <p className="text-gray-600 text-center mb-8">Select how you want TaskTopia to look</p>
+        <h2 className="font-bold mb-2 text-center">Choose Your Theme</h2>
+        <p className="text-center mb-8">Select  how  you  want  TaskTopia  to  look</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {themes.map((theme) => (
@@ -61,15 +62,14 @@ export function ThemeSelector({ currentTheme, onThemeSelect, onClose }: ThemeSel
 
                 {/* Theme name */}
                 <div
-                  className="font-bold text-lg"
-                  style={{ color: THEMES[theme].text }}
+                  className="font-bold"
+                  style={{ color: THEMES[theme].text, fontFamily: THEME_FONTS[theme] }}
                 >
                   {theme.charAt(0).toUpperCase() + theme.slice(1)}
                 </div>
 
                 {/* Description */}
                 <div
-                  className="text-sm"
                   style={{ color: THEMES[theme].textLight }}
                 >
                   {THEME_DESCRIPTIONS[theme]}
@@ -89,7 +89,7 @@ export function ThemeSelector({ currentTheme, onThemeSelect, onClose }: ThemeSel
         <div className="mt-8 flex justify-center">
           <button
             onClick={onClose}
-            className="px-6 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition"
+            className="px-6 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition"
           >
             Close
           </button>

@@ -32,7 +32,7 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
     secondary: '#0A2809', // Dark Green
     accent: '#0a28097a', // Transparent Dark Green
     bg: '#e3d7b859', // Transparent
-    surface: '#e3d7b888', // Transparent Beige
+    surface: '#e3d7b8cb', // Transparent Beige
     text: '#c8b072',
     textLight: '#5E875D', 
     // e3d7b8
@@ -41,27 +41,27 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
     shadow: 'rgba(0, 0, 0, 0.85)',
   },
   dark: {
-    primary: '#14af50', // Neon Cyan
-    secondary: '#14af50', // Purple
-    accent: '#577c64', // Blue
-    bg: '#222222', // Dark Charcoal
-    surface: '#37373d', 
-    text: '#9cdf30',
+    primary: '#14a5af',
+    secondary: '#148baf',
+    accent: '#37373d', 
+    bg: '#22222271', 
+    surface: '#396469', 
+    text: '#4d73bb',
     textLight: '#9cffc2',
-    border: '#00D9FF',
+    border: '#148baf',
     hover: '#8383bb',
-    shadow: 'rgba(0, 217, 255, 0.35)',
+    shadow: 'rgba(0, 255, 85, 0.12)',
   },
 };
 
 export const THEME_FONTS: Record<ThemeType, string> = {
   playful: 'TasktopiaRetroFont, Oi, serif, Rubik Microbe, system-ui',
   modern:  'TasktopiaModernFont, Bodoni Moda SC, serif',
-  dark: 'Outfit, "Space Grotesk", sans-serif',
+  dark: 'TasktopiaDarkFont, Space Grotesk, sans-serif',
 };
 
 export const THEME_DESCRIPTIONS: Record<ThemeType, string> = {
-  playful: 'Fun & Playful - Colorful, vibrant and energetic',
-  modern: 'Clean & modern - Professional and focused',
-  dark: 'Dark & dark - Sleek, futuristic and dark',
+  playful: 'Fun & Playful -Colorful, vibrant and energetic',
+  modern: 'Clean & modern -Professional and focused',
+  dark: 'Dark & dark -Futuristic and dark',
 };
