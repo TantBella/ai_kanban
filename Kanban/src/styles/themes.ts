@@ -31,7 +31,7 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
     primary: '#c8b072', // Gold Beige
     secondary: '#0A2809', // Dark Green
     accent: '#0a28097a', // Transparent Dark Green
-    bg: '#e3d7b82a', // Transparent
+    bg: '#e3d7b859', // Transparent
     surface: '#e3d7b888', // Transparent Beige
     text: '#c8b072',
     textLight: '#5E875D', 
@@ -41,16 +41,16 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
     shadow: 'rgba(0, 0, 0, 0.85)',
   },
   dark: {
-    primary: '#00D9FF', // Neon Cyan
-    secondary: '#9D4EDD', // Purple
-    accent: '#3A86FF', // Blue
-    bg: '#0F0F0F', // Dark Charcoal
-    surface: '#1A1A2E', // Navy
-    text: '#E0E0E0',
-    textLight: '#A0A0A0',
+    primary: '#14af50', // Neon Cyan
+    secondary: '#14af50', // Purple
+    accent: '#577c64', // Blue
+    bg: '#222222', // Dark Charcoal
+    surface: '#37373d', 
+    text: '#9cdf30',
+    textLight: '#9cffc2',
     border: '#00D9FF',
-    hover: '#1F1F3D',
-    shadow: 'rgba(0, 217, 255, 0.2)',
+    hover: '#8383bb',
+    shadow: 'rgba(0, 217, 255, 0.35)',
   },
 };
 
@@ -61,7 +61,7 @@ export const THEME_FONTS: Record<ThemeType, string> = {
 };
 
 export const THEME_DESCRIPTIONS: Record<ThemeType, string> = {
-  playful: 'Fun & Playful - Colorful, vibrant, and energetic',
+  playful: 'Fun & Playful - Colorful, vibrant and energetic',
   modern: 'Clean & modern - Professional and focused',
-  dark: 'Dark & dark - Sleek, futuristic, and sophisticated',
+  dark: 'Dark & dark - Sleek, futuristic and dark',
 };

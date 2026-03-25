@@ -14,6 +14,13 @@
 }
 
 @font-face {
+  font-family: 'TasktopiaDarkFont';
+  src: url('./assets/fonts/Poxast-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'TasktopiaParagraphFont';
   src: url('./assets/fonts/Bowhouse-Regular.otf') format('otf');
   font-weight: normal;
@@ -21,7 +28,7 @@
 }
 /* Theme fonts - default playful */
 :root {
-  --theme-font: 'Fredoka, TasktopiaModernFont, TasktopiaRetroFont, sans-serif';
+  --theme-font: 'TasktopiaDarkFont, TasktopiaModernFont, TasktopiaRetroFont, sans-serif';
 }
 
 body {
@@ -38,7 +45,7 @@ html[data-theme="modern"] {
 }
 
 html[data-theme="dark"] {
-  --theme-font: 'Outfit, Space Grotesk, sans-serif';
+  --theme-font: 'TasktopiaDarkFont', sans-serif;
 }
    html[data-theme="playful"] body {
       background-image: url('/images/playful_bg.jpg');
