@@ -238,7 +238,7 @@ src/
 ## 🎨 UI/UX Features
 
 ### Visual Design
-- Clean, minimalist interface
+- Clean, modernist interface
 - Consistent color scheme (blue/gray/red)
 - Responsive spacing and layout
 - Tailwind CSS for styling

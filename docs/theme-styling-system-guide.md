@@ -81,10 +81,10 @@ Vibrant, energetic, creative - designed for teams who want their workspace to fe
 
 ---
 
-## Theme 2: Clean & Minimal 📋
+## Theme 2: Clean & modern 📋
 
 ### Philosophy
-Professional, focused, distraction-free - designed for teams who value simplicity and clarity. Emphasis on readability and elegant minimalism.
+Professional, focused, distraction-free - designed for teams who value simplicity and clarity. Emphasis on readability and elegant modernism.
 
 ### Color Palette
 
@@ -114,7 +114,7 @@ Professional, focused, distraction-free - designed for teams who value simplicit
 - Background: White (#FFFFFF)
 - Button (TaskTopia): Black (#1a1a1a) text on white with thin border (#D1D1D1)
 - Text: Black (#1a1a1a)
-- Shadow: Minimal (shadow-sm with gray)
+- Shadow: modern (shadow-sm with gray)
 
 **Board Selector Dropdown:**
 - Background: White with subtle gray border (#D1D1D1)
@@ -140,7 +140,7 @@ Professional, focused, distraction-free - designed for teams who value simplicit
 - Default: Black (#1a1a1a) text on transparent with border
 - Hover: Opacity change (opacity-80)
 - Delete: Red/danger color
-- Border-radius: 2px (sharp, minimal)
+- Border-radius: 2px (sharp, modern)
 
 **Animations:**
 - Hover: Opacity transition (100ms)
@@ -149,7 +149,7 @@ Professional, focused, distraction-free - designed for teams who value simplicit
 
 ---
 
-## Theme 3: Dark & Modern 🌙
+## Theme 3: Dark & dark 🌙
 
 ### Philosophy
 Sleek, tech-forward, sophisticated - designed for teams who work late and love cutting-edge aesthetics. Glassmorphic design with neon accents.
@@ -171,9 +171,9 @@ Sleek, tech-forward, sophisticated - designed for teams who work late and love c
 
 | Element | Font | Weight | Size | Notes |
 |---------|------|--------|------|-------|
-| Headers (H1, H2) | Outfit | 600 | 32-40px | Modern, sleek |
+| Headers (H1, H2) | Outfit | 600 | 32-40px | dark, sleek |
 | Titles (H3, H4) | Outfit | 500 | 20-24px | Tech-forward |
-| Body Text | Space Grotesk | 400 | 16px | Geometric, modern |
+| Body Text | Space Grotesk | 400 | 16px | Geometric, dark |
 | Labels/Small | Space Grotesk | 300 | 14px | Subtle |
 
 ### Component Styling
@@ -208,7 +208,7 @@ Sleek, tech-forward, sophisticated - designed for teams who work late and love c
 - Default: Teal (#00D9FF) with neon glow
 - Hover: Enhanced glow, slight color shift to brighter teal
 - Delete: Purple (#9D4EDD) with glow
-- Border-radius: 4px (slightly rounded, modern)
+- Border-radius: 4px (slightly rounded, dark)
 
 **Animations:**
 - Hover: Glow enhancement (box-shadow expansion)
@@ -221,7 +221,7 @@ Sleek, tech-forward, sophisticated - designed for teams who work late and love c
 
 ### 1. Theme Context/State
 - Create React Context for theme management
-- State: `currentTheme: "playful" | "minimal" | "modern"`
+- State: `currentTheme: "playful" | "modern" | "dark"`
 - Persist to localStorage under key `kanban-theme`
 - Load preference on app startup
 
@@ -239,8 +239,8 @@ Sleek, tech-forward, sophisticated - designed for teams who work late and love c
 ### 3. Google Fonts Integration
 - Add fonts via index.css or index.html `<link>` tags
 - Playful: `Fredoka`, `Poppins`, `Quicksand`
-- Minimal: `Inter`, `Roboto`, `Lato`
-- Modern: `Outfit`, `Space Grotesk`
+- modern: `Inter`, `Roboto`, `Lato`
+- dark: `Outfit`, `Space Grotesk`
 
 ### 4. CSS Variables
 - Define theme colors as CSS variables
@@ -334,14 +334,14 @@ Sleek, tech-forward, sophisticated - designed for teams who work late and love c
 - Vibrant shadows with color tints
 - Large, expressive typography
 
-### Minimal Theme
+### modern Theme
 - Sharp corners (2px) or no border-radius
 - Subtle hover effects (opacity, very slight color change)
 - Monochromatic or near-monochromatic color scheme
 - Thin font weights (300-400)
 - Generous whitespace
 
-### Dark/Modern Theme
+### Dark/dark Theme
 - Glassmorphic cards (semi-transparent + backdrop-blur)
 - Neon glow effects on interactive elements
 - Sci-fi inspired aesthetic

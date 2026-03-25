@@ -18,10 +18,10 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
     primary: '#FF69B4', // Hot Pink
     secondary: '#FF8C00', // Orange
     accent: '#FFD700', // Golden Yellow
-    bg: '#8b898925', // Transparent grey
+    bg: '#ff85c034', // Transparent grey
     surface: '#FFF5F7', // Light Pink
-    text: '#1a1a1a',
-    textLight: '#666666',
+    text: '#FF8C00',
+    textLight: '#5900ff',
     border: '#FFB6D9',
     hover: '#FF85C0',
     shadow: 'rgba(255, 105, 180, 0.3)',
@@ -29,15 +29,16 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
   },
   modern: {
     primary: '#c8b072', // Gold Beige
-    secondary: '#e3d7b8', // Beige
-    accent: '#e3d7b8a9', // Transparent Beige
+    secondary: '#0A2809', // Dark Green
+    accent: '#0a28097a', // Transparent Dark Green
     bg: '#e3d7b82a', // Transparent
-    surface: '#0a28094d', // Transparent Dark Green
-    text: '#000000',
-    textLight: '#e3d7b8',
+    surface: '#e3d7b888', // Transparent Beige
+    text: '#c8b072',
+    textLight: '#5E875D', 
+    // e3d7b8
     border: '#c8b072',
     hover: '#F0F0F0',
-    shadow: 'rgba(0, 0, 0, 0.1)',
+    shadow: 'rgba(0, 0, 0, 0.85)',
   },
   dark: {
     primary: '#00D9FF', // Neon Cyan
@@ -61,6 +62,6 @@ export const THEME_FONTS: Record<ThemeType, string> = {
 
 export const THEME_DESCRIPTIONS: Record<ThemeType, string> = {
   playful: 'Fun & Playful - Colorful, vibrant, and energetic',
-  modern: 'Clean & modern - Professional, elegant, and focused',
+  modern: 'Clean & modern - Professional and focused',
   dark: 'Dark & dark - Sleek, futuristic, and sophisticated',
 };

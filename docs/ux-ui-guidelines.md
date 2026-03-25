@@ -39,7 +39,7 @@ Users should be able to perform actions quickly.
 
 Focus on:
 
-* Minimal clicks
+* modern clicks
 * Fast interactions
 * Inline actions instead of modals when possible
 
@@ -168,7 +168,7 @@ The UX/UI Designer must define:
 
 ## Visual Design Guidelines
 
-* Minimalistic design
+* modernistic design
 * Neutral color palette (white, gray)
 * One accent color for interaction
 * Subtle shadows for depth

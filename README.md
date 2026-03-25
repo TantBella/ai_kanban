@@ -113,7 +113,7 @@ Key interactions:
 
 * Drag and drop for moving cards
 * Inline creation of tasks
-* Minimal clicks to perform actions
+* modern clicks to perform actions
 
 ---
 

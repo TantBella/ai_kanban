@@ -147,7 +147,7 @@ Users keep the board current and focused on active work.
 Users can drag a card from one column to another (e.g., "To Do" → "In Progress") using drag-and-drop.
 
 **User Value:**
-Users can update task status intuitively with minimal friction.
+Users can update task status intuitively with modern friction.
 
 **Tasks:**
 - [X] Implement drag-and-drop logic

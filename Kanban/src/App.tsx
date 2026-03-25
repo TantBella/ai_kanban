@@ -122,7 +122,7 @@ function App() {
   return (
     <div  style={{ backgroundColor: themeColors.bg, minHeight: '100vh' }}>
       <div
-        className="text-white px-8 py-6 flex items-center justify-between"
+        className="px-8 py-6 flex items-center justify-between"
         style={{ backgroundColor: themeColors.surface }}
       >
         <h1

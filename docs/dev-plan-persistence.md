@@ -107,7 +107,7 @@ useEffect(() => {
 - ✅ Firefox
 - ✅ Safari
 - ✅ Edge
-- ✅ All modern browsers with localStorage support
+- ✅ All dark browsers with localStorage support
 
 ## Notes
 - localStorage is synchronous, so large boards (100+ cards) might show minor lag on save

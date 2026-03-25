@@ -5,7 +5,7 @@ Users can open the application and see an empty Kanban board with 3 default colu
 
 ## Design Specs (from UX/Designer)
 - 3 default columns: "To Do", "In Progress", "Done"
-- Minimalistic design: white background, light gray columns
+- modernistic design: white background, light gray columns
 - "Add a card to get started" messaging in empty columns
 - Dismissible welcome banner: "Welcome to your Kanban board. Drag cards between columns to organize your workflow."
 - Inline add-card area at bottom of each column

@@ -156,7 +156,7 @@ After implementation:
 The Developer must respect UX goals:
 
 * Fast interactions
-* Minimal clicks
+* modern clicks
 * Clear visual structure
 
 Do NOT:

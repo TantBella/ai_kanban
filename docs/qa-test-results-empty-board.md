@@ -110,7 +110,7 @@ The "View Empty Board" feature meets all acceptance criteria:
 - Board structure is clear and intuitive
 - Empty state messaging guides users
 - Welcome banner educates without being intrusive
-- Styling is clean and minimalistic per UX specs
+- Styling is clean and modernistic per UX specs
 - No technical issues or errors
 
 Ready for next feature development.
