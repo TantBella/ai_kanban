@@ -126,14 +126,13 @@ function App() {
         style={{ backgroundColor: themeColors.surface }}
       >
         <h1
-          className="text-3xl  cursor-pointer hover:opacity-80 transition-opacity"
+          className="cursor-pointer hover:opacity-80 transition-opacity"
           onClick={() => setShowThemeSelector(true)}
           style={{ color: themeColors.secondary }}
         >
           TaskTopia
         </h1>
         <BoardSelector
-        
           boards={appState.boards}
           selectedBoardId={appState.selectedBoardId}
           onSelectBoard={handleSelectBoard}

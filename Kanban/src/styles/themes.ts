@@ -1,4 +1,4 @@
-export type ThemeType = 'playful' | 'minimal' | 'modern';
+export type ThemeType = 'playful' | 'modern' | 'dark';
 
 export interface ThemeColors {
   primary: string;
@@ -18,7 +18,7 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
     primary: '#FF69B4', // Hot Pink
     secondary: '#FF8C00', // Orange
     accent: '#FFD700', // Golden Yellow
-    bg: '#8b898925', // White
+    bg: '#8b898925', // Transparent grey
     surface: '#FFF5F7', // Light Pink
     text: '#1a1a1a',
     textLight: '#666666',
@@ -27,19 +27,19 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
     shadow: 'rgba(255, 105, 180, 0.3)',
 
   },
-  minimal: {
-    primary: '#000000', // Black
-    secondary: '#F5F5DC', // Beige
-    accent: '#CCCCCC', // Light Gray
-    bg: '#FFFFFF', // White
-    surface: '#F9F9F9', // Off White
-    text: '#1a1a1a',
-    textLight: '#666666',
-    border: '#E0E0E0',
+  modern: {
+    primary: '#c8b072', // Gold Beige
+    secondary: '#e3d7b8', // Beige
+    accent: '#e3d7b8a9', // Transparent Beige
+    bg: '#e3d7b82a', // Transparent
+    surface: '#0a28094d', // Transparent Dark Green
+    text: '#000000',
+    textLight: '#e3d7b8',
+    border: '#c8b072',
     hover: '#F0F0F0',
     shadow: 'rgba(0, 0, 0, 0.1)',
   },
-  modern: {
+  dark: {
     primary: '#00D9FF', // Neon Cyan
     secondary: '#9D4EDD', // Purple
     accent: '#3A86FF', // Blue
@@ -55,12 +55,12 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
 
 export const THEME_FONTS: Record<ThemeType, string> = {
   playful: 'TasktopiaRetroFont, Oi, serif, Rubik Microbe, system-ui',
-  minimal: 'Inter, Roboto, Lato, sans-serif',
-  modern: 'Outfit, "Space Grotesk", sans-serif',
+  modern:  'TasktopiaModernFont, Bodoni Moda SC, serif',
+  dark: 'Outfit, "Space Grotesk", sans-serif',
 };
 
 export const THEME_DESCRIPTIONS: Record<ThemeType, string> = {
   playful: 'Fun & Playful - Colorful, vibrant, and energetic',
-  minimal: 'Clean & Minimal - Professional, elegant, and focused',
-  modern: 'Dark & Modern - Sleek, futuristic, and sophisticated',
+  modern: 'Clean & modern - Professional, elegant, and focused',
+  dark: 'Dark & dark - Sleek, futuristic, and sophisticated',
 };

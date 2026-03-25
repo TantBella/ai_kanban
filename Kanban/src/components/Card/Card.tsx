@@ -1,11 +1,15 @@
 import { useState, useRef } from 'react';
 import type { CardProps } from './Card.types';
+import { useTheme } from '../../hooks/useTheme';
+import { THEMES } from '../../styles/themes';
 
 export function Card({ task, onDelete, onEdit, columnId, taskIndex }: CardProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(task.title);
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDragging, setIsDragging] = useState(false);
+    const { theme } = useTheme();
+    const themeColors = THEMES[theme];
 
   const handleDeleteClick = () => {
     if (window.confirm(`Delete task "${task.title}"?`)) {
@@ -73,13 +77,13 @@ export function Card({ task, onDelete, onEdit, columnId, taskIndex }: CardProps)
             onKeyDown={handleKeyDown}
             onBlur={handleSaveEdit}
             autoFocus
-            className="flex-1 px-2 py-1 text-sm border rounded focus:outline-none bg-white"
-            style={{ borderColor: '#ccc' }}
+            className="flex-1 px-2 py-1 border rounded focus:outline-none bg-white"
+            style={{ borderColor: themeColors.secondary }}
           />
         ) : (
           <p
             onClick={handleStartEdit}
-            className="text-sm font-medium text-gray-800 flex-1 cursor-pointer hover:bg-gray-100 p-1 rounded transition-colors"
+            className="font-medium text-gray-800 flex-1 cursor-pointer hover:bg-gray-100 p-1 rounded transition-colors"
           >
             {task.title}
           </p>
@@ -96,7 +100,7 @@ export function Card({ task, onDelete, onEdit, columnId, taskIndex }: CardProps)
         </button>
       </div>
       {task.description && !isEditing && (
-        <p className="text-xs text-gray-600 mt-2">{task.description}</p>
+        <p className="text-gray-600 mt-2">{task.description}</p>
       )}
     </div>
   );

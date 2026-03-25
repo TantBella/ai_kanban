@@ -7,6 +7,13 @@
 }
 
 @font-face {
+  font-family: 'TasktopiaModernFont';
+  src: url('./assets/fonts/Sketch-Toronto.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'TasktopiaParagraphFont';
   src: url('./assets/fonts/Bowhouse-Regular.otf') format('otf');
   font-weight: normal;
@@ -14,7 +21,7 @@
 }
 /* Theme fonts - default playful */
 :root {
-  --theme-font: 'Fredoka, Poppins, TasktopiaRetroFont, sans-serif';
+  --theme-font: 'Fredoka, TasktopiaModernFont, TasktopiaRetroFont, sans-serif';
 }
 
 body {
@@ -26,35 +33,38 @@ html[data-theme="playful"] {
   --theme-font: "TasktopiaRetroFont", "Oi", serif, "Rubik Microbe", system-ui;
 }
 
-html[data-theme="minimal"] {
-  --theme-font: 'Inter, Roboto, Lato, sans-serif';
+html[data-theme="modern"] {
+  --theme-font: TasktopiaModernFont, 'Bodoni Moda SC', serif;
 }
 
-html[data-theme="modern"] {
+html[data-theme="dark"] {
   --theme-font: 'Outfit, Space Grotesk, sans-serif';
 }
-
-html[data-theme="playful"] body {
-  font-family:  "TasktopiaRetroFont", "Oi", serif, "Rubik Microbe", system-ui;
-}
-
-html[data-theme="minimal"] body {
-  font-family: 'Inter, Roboto, Lato, sans-serif';
-}
-
-html[data-theme="modern"] body {
-  font-family: 'Outfit, Space Grotesk, sans-serif';
-}
    html[data-theme="playful"] body {
-      background-image: url('/public/images/playful_bg.jpg');
+      background-image: url('/images/playful_bg.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
 
-    #welcome-banner{
-      background-color: #00000075;
+       html[data-theme="modern"] body {
+      background-image: url('/images/modern_bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
-p {
-  font-family: 'TasktopiaParagraphFont', sans-serif;
+
+    h1{
+      font-size: 42px;
+    }
+h2{
+  font-size: 28px;
+}
+
+button{
+  font-size: 22px;
+  letter-spacing: 2px; 
+}
+p, input {
+  font-family: 'TasktopiaParagraphFont', 'sans-serif';
 }

@@ -91,7 +91,7 @@ export function BoardSelector({
 
       {isOpen && (
         <div className="absolute left-0 mt-2 w-64 bg-white border border-gray-300 rounded shadow-lg z-50">
-          <div className="p-2 max-h-80 overflow-y-auto">
+          <div className="p-2 max-h-80 ">
             {boards.map((board) => (
               <div key={board.id} className="flex items-center justify-between p-2 hover:bg-gray-100 rounded group">
                 {renamingBoardId === board.id ? (
@@ -103,7 +103,7 @@ export function BoardSelector({
                     onBlur={() => handleRenameSave(board.id)}
                     autoFocus
                     className="flex-1 px-2 py-1 border rounded focus:outline-none"
-                    style={{ borderColor: '#ccc' }}
+                    // style={{ borderColor: '#ccc' }}
                   />
                 ) : (
                   <button

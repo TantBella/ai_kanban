@@ -18,7 +18,7 @@ interface ThemeProviderProps {
 function loadThemeFromStorage(): ThemeType {
   try {
     const stored = localStorage.getItem(THEME_STORAGE_KEY);
-    if (stored && (stored === 'playful' || stored === 'minimal' || stored === 'modern')) {
+    if (stored && (stored === 'playful' || stored === 'modern' || stored === 'dark')) {
       return stored as ThemeType;
     }
   } catch (error) {

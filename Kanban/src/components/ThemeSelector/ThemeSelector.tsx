@@ -8,7 +8,7 @@ interface ThemeSelectorProps {
 }
 
 export function ThemeSelector({ currentTheme, onThemeSelect, onClose }: ThemeSelectorProps) {
-  const themes: ThemeType[] = ['playful', 'minimal', 'modern'];
+  const themes: ThemeType[] = ['playful', 'modern', 'dark'];
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={onClose}>

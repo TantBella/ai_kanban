@@ -159,14 +159,14 @@ export function Board({ board, onUpdateBoard }: BoardProps) {
   }, [onUpdateBoard]);
 
   return (
-    <div className="p-8 ">
-      <div className='text-center border-4 p-4 mb-3 rounded'  style={{
+    <div className="p-8 mb-4">
+      <div className='text-center border-4 p-4 mb-4 rounded'  style={{
          backgroundColor: `${themeColors.accent}`,
          borderColor: themeColors.primary,
          color: themeColors.text
         }}>
 
-      <h1 className="text-3xl text-gray-900 mb-3"
+      <h1 
      >{localBoard.name}</h1>
         </div>
       <WelcomeBanner />

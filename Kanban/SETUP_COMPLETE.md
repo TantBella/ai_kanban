@@ -4,7 +4,7 @@
 
 ### 1. **React + TypeScript Project (Vite)**
 - Created using `npm create vite@latest . --template react-ts`
-- Vite provides fast dev server and minimal configuration
+- Vite provides fast dev server and modern configuration
 - Full TypeScript support for type safety
 
 ### 2. **Tailwind CSS**
@@ -54,7 +54,7 @@ Components are small, focused, and reusable.
 ✅ **Types First** — All data shapes defined before rendering (per learnings)  
 ✅ **Small Components** — Board/Column/Card are separate and testable  
 ✅ **Local State Only** — No global state yet (prefer simplicity per learnings)  
-✅ **Minimal Dependencies** — Only React, TypeScript, Tailwind  
+✅ **modern Dependencies** — Only React, TypeScript, Tailwind  
 ✅ **Ready for Features** — Structure supports drag-and-drop, editing, persistence  
 ✅ **Fast Development** — Vite provides instant HMR and fast builds  
 

@@ -101,10 +101,10 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard
       }`}
       style={{
         backgroundColor: themeColors.surface,
-        boxShadow: isDraggedOver ? `0 0 0 2px ${themeColors.primary}` : 'none'
+        boxShadow: isDraggedOver ? `0 0 0 2px ${themeColors.secondary}` : 'none'
       }}
     >
-      <div className="flex justify-between items-center mb-4 group">
+      <div className="flex text-md justify-between items-center mb-4 group">
         {isRenamingColumn ? (
           <input
             type="text"
@@ -113,13 +113,13 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard
             onKeyDown={handleRenameKeyDown}
             onBlur={handleRenameSave}
             autoFocus
-            className="flex-1 px-2 py-1 text-sm border rounded focus:outline-none bg-white font-bold text-gray-800"
-            style={{ borderColor: '#ccc' }}
+            className="flex-1 px-2 py-1  border rounded focus:outline-none bg-white  text-gray-800"
+            style={{ borderColor:  themeColors.secondary }}
           />
         ) : (
           <h2 
             onClick={handleRenameStart}
-            className="font-bold text-gray-800 flex-1 cursor-pointer hover:bg-gray-200 p-1 rounded transition-colors"
+            className=" text-gray-800 flex-1 cursor-pointer hover:bg-gray-200 p-1 rounded transition-colors text-md"
           >
             {column.name}
           </h2>
@@ -147,8 +147,8 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard
           />
         ))}
         {isEmpty && (
-          <div className="flex items-center justify-center h-32 text-gray-400">
-            <p className="text-sm text-center">Add a card to get started</p>
+          <div className="text-sm flex items-center justify-center h-32 text-gray-500">
+            <p className=" text-center">Add a card to get started</p>
           </div>
         )}
       </div>
@@ -159,8 +159,8 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard
           onChange={(e) => setInputValue(e.target.value)}
           onKeyPress={handleKeyPress}
           placeholder="Add a card..."
-          className="w-full px-3 py-2 text-sm border rounded bg-white hover:bg-gray-50 focus:bg-white focus:outline-none placeholder-gray-400"
-          style={{ borderColor: '#ccc' }}
+          className="w-full px-3 py-2  border rounded bg-white hover:bg-gray-50 focus:bg-white focus:outline-none placeholder-gray-400"
+          style={{ borderColor:  themeColors.secondary}}
         />
       </div>
     </div>
