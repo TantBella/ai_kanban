@@ -136,16 +136,16 @@ Other way to switch between and organize boards
 ---
 
 ## AI-styled webbapplication:
-  ![](https://github.com/TantBella/ai_kanban/blob/main/images/202026-03-21_20125729.png)
+  ![ai-styling](https://github.com/TantBella/ai_kanban/blob/main/images/2026-03-21_125729.png)
 
 ## My styling:
 
 ### Choose between 3 different themes
-  ![](https://github.com/TantBella/ai_kanban/blob/main/images/202026-03-25_20153557.png)
+  ![choose themes](https://github.com/TantBella/ai_kanban/blob/main/images/2026-03-25_153557.png)
 
 ### Playful theme: 
-  ![](https://github.com/TantBella/ai_kanban/blob/main/images/202026-03-25_20153843.png)
+  ![playful](https://github.com/TantBella/ai_kanban/blob/main/images/2026-03-25_153843.png)
 ### Modern theme:
-  ![](https://github.com/TantBella/ai_kanban/blob/main/images/202026-03-25_20153832.png)
+  ![modern](https://github.com/TantBella/ai_kanban/blob/main/images/2026-03-25_153832.png)
 ### Dark theme: 
-  ![](https://github.com/TantBella/ai_kanban/blob/main/images/202026-03-25_20153607.png)
+  ![dark](https://github.com/TantBella/ai_kanban/blob/main/images/2026-03-25_153607.png)
