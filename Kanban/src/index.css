@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @font-face {
   font-family: 'TasktopiaRetroFont';
   src: url('./assets/fonts/ALBAS___.TTF') format('truetype');
@@ -26,9 +27,10 @@
   font-weight: normal;
   font-style: normal;
 }
+
 /* Theme fonts - default playful */
 :root {
---theme-font: sans-serif;
+  --theme-font: sans-serif;
 }
 
 body {
@@ -47,39 +49,46 @@ html[data-theme="modern"] {
 html[data-theme="dark"] {
   --theme-font: 'TasktopiaDarkFont', sans-serif;
 }
-   html[data-theme="playful"] body {
-      background-image: url('/images/playful_bg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
 
-      html[data-theme="modern"] body {
-      background-image: url('/images/modern_bg.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+html[data-theme="playful"] body {
+  background-image: url('/images/playful_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-      html[data-theme="dark"] body {
-      background-image: url('/images/dark_bg.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
+html[data-theme="modern"] body {
+  background-image: url('/images/modern_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    h1{
-      font-size: 42px;
-    }
-h2{
+html[data-theme="dark"] body {
+  background-image: url('/images/dark_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
   font-size: 28px;
 }
 
-button{
+button {
   font-size: 22px;
-  letter-spacing: 2px; 
+  letter-spacing: 2px;
 }
-p, input {
-  font-family: 'TasktopiaParagraphFont', 'sans-serif';  
-  letter-spacing: 1px; 
+
+.bg-card{
+  background-color: #fffff0;
+}
+p,
+input {
+  font-family: 'TasktopiaParagraphFont', 'sans-serif';
+  letter-spacing: 1px;
 }

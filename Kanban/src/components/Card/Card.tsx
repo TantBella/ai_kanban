@@ -63,7 +63,7 @@ export function Card({ task, onDelete, onEdit, columnId, taskIndex }: CardProps)
       draggable
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
-      className={`bg-white p-4 rounded shadow transition-all group relative ${
+      className={`bg-card p-4 rounded shadow transition-all group relative ${
         isDragging ? 'opacity-50 cursor-grabbing' : 'hover:shadow-lg cursor-grab'
       }`}
     >
@@ -77,7 +77,7 @@ export function Card({ task, onDelete, onEdit, columnId, taskIndex }: CardProps)
             onKeyDown={handleKeyDown}
             onBlur={handleSaveEdit}
             autoFocus
-            className="flex-1 px-2 py-1 border rounded focus:outline-none bg-white"
+            className="flex-1 px-2 py-1 border rounded focus:outline-none bg-card"
             style={{ borderColor: themeColors.secondary }}
           />
         ) : (

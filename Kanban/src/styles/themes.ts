@@ -46,11 +46,11 @@ export const THEMES: Record<ThemeType, ThemeColors> = {
     accent: '#37373d', 
     bg: '#22222271', 
     surface: '#396469', 
-    text: '#4d73bb',
-    textLight: '#9cffc2',
+    text: '#4dbbb5',
+    textLight: '#9cfcff',
     border: '#148baf',
     hover: '#8383bb',
-    shadow: 'rgba(0, 255, 85, 0.12)',
+    shadow: 'rgba(161, 187, 170, 0.89)',
   },
 };
 

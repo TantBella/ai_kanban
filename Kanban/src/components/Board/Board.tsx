@@ -170,7 +170,7 @@ export function Board({ board, onUpdateBoard }: BoardProps) {
      >{localBoard.name}</h1>
         </div>
       <WelcomeBanner />
-      <div className="flex gap-6 items-start">
+      <div className="flex flex-wrap gap-6 items-start overflow-y-auto">
         {localBoard.columns.map((column) => (
           <Column
             key={column.id}

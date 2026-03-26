@@ -96,12 +96,14 @@ export function Column({ column, onAddCard, onDeleteCard, onEditCard, onMoveCard
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-      className={`rounded-lg p-4 w-80 flex flex-col min-h-96 transition-colors ${
+      className={`rounded-lg p-4 flex-shrink-0 flex flex-col min-h-96 transition-colors ${
         isDraggedOver ? 'ring-2' : ''
       }`}
       style={{
         backgroundColor: themeColors.surface,
-        boxShadow: isDraggedOver ? `0 0 0 2px ${themeColors.secondary}` : 'none'
+        boxShadow: isDraggedOver ? `0 0 0 2px ${themeColors.secondary}` : 'none',
+        width: 'min(320px, calc(100% - 1.5rem))',
+        minWidth: '280px'
       }}
     >
       <div className="flex text-md justify-between items-center mb-4 group">

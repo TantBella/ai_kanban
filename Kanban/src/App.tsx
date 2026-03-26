@@ -120,26 +120,28 @@ function App() {
   }
 
   return (
-    <div  style={{ backgroundColor: themeColors.bg, minHeight: '100vh' }}>
+    <div style={{ backgroundColor: themeColors.bg, minHeight: '100vh', width: '100vw', display: 'flex', flexDirection: 'column' }}>
       <div
-        className="px-8 py-6 flex items-center justify-between"
+        className="px-8 py-6 w-full"
         style={{ backgroundColor: themeColors.surface }}
       >
-        <h1
-          className="cursor-pointer hover:opacity-80 transition-opacity"
-          onClick={() => setShowThemeSelector(true)}
-          style={{ color: themeColors.secondary }}
-        >
-          TaskTopia
-        </h1>
-        <BoardSelector
-          boards={appState.boards}
-          selectedBoardId={appState.selectedBoardId}
-          onSelectBoard={handleSelectBoard}
-          onCreateBoard={handleCreateBoard}
-          onRenameBoard={handleRenameBoard}
-          onDeleteBoard={handleDeleteBoard}
-        />
+        <div className="flex items-center justify-between gap-4">
+          <h1
+            className="cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={() => setShowThemeSelector(true)}
+            style={{ color: themeColors.secondary }}
+          >
+            TaskTopia
+          </h1>
+          <BoardSelector
+            boards={appState.boards}
+            selectedBoardId={appState.selectedBoardId}
+            onSelectBoard={handleSelectBoard}
+            onCreateBoard={handleCreateBoard}
+            onRenameBoard={handleRenameBoard}
+            onDeleteBoard={handleDeleteBoard}
+          />
+        </div>
       </div>
       <BoardComponent board={selectedBoard} onUpdateBoard={handleUpdateSelectedBoard} />
       
